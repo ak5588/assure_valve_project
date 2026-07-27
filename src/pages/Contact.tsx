@@ -1,22 +1,56 @@
 import { PageShell } from "../components/site/PageShell";
 import { PageHero } from "../components/site/PageHero";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { SeoHead } from "../components/seo/SeoHead";
+import { StructuredData } from "../components/seo/StructuredData";
+import { siteConfig } from "../lib/seoContent";
 
 const CARDS = [
-  { icon: MapPin, title: "Factory Address", body: "746/8 GIDC Industrial Estate,\nMakarpura, Vadodara,\nGujarat 390010, India" },
-  { icon: Phone, title: "Phone / WhatsApp", body: "+91 926 539 7041\n+91 926 539 7041" },
-  { icon: Mail, title: "Email", body: "alokkushwaha135@gmail.com\nworks@assurevalve.in" },
-  { icon: Clock, title: "Working Hours", body: "Monday – Saturday\n9:00 AM to 7:00 PM IST" },
+  { icon: MapPin, title: "Factory Address", body: "Plot No. 298/1/B-4\nGIDC Makarpura\nVadodara\nGujarat – 390010\nIndia" },
+  { icon: Phone, title: "Phone / WhatsApp", body: "+91 98981 29694" },
+  { icon: Mail, title: "Email", body: "assurevalvecomponent@gmail.com" },
+  { icon: Clock, title: "Working Hours", body: "24/7 Customer Support\nAvailable via Phone & WhatsApp" },
 ];
 
 export default function Contact() {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: siteConfig.companyName,
+    image: "https://assurevalve.in/assure_valve_logo.png",
+    url: siteConfig.website,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Plot No. 298/1/B-4",
+      addressLocality: "Vadodara",
+      addressRegion: "Gujarat",
+      postalCode: "390010",
+      addressCountry: "IN",
+    },
+    areaServed: ["Vadodara", "Gujarat", "India"],
+    description: "Valve component manufacturer and repair company in Vadodara offering CNC machining, industrial welding, coating and refurbishment services.",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 22.3220,
+      longitude: 73.1807,
+    },
+  };
+
   return (
     <PageShell>
+      <SeoHead
+        title="Contact Assure Valve | Request a Valve Component Quote"
+        description="Contact Assure Valve for valve component manufacturing, industrial repair, technical consultation and urgent RFQ support in Vadodara and across India."
+        canonical="https://assurevalve.in/contact"
+      />
+      <StructuredData data={localBusinessSchema} />
       <PageHero
         crumb="Contact"
         eyebrow="Get In Touch"
         title="Talk to our engineering & sales team."
-        description="For quotations, vendor registration, technical discussion or a plant visit — reach us on any of the channels below."
+        description="For quotations, technical discussion, refurbishment support or a plant visit — reach us on any of the channels below."
       />
 
       <section className="py-24 bg-background">
@@ -26,7 +60,7 @@ export default function Contact() {
               <div key={c.title} className="bg-background p-8">
                 <c.icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
                 <div className="mt-5 text-eyebrow text-muted-foreground">{c.title}</div>
-                <div className="mt-2 text-sm text-foreground whitespace-pre-line leading-relaxed">{c.body}</div>
+                <div className="mt-2 text-sm text-foreground whitespace-pre-line leading-relaxed break-words">{c.body}</div>
               </div>
             ))}
           </div>
@@ -41,12 +75,10 @@ export default function Contact() {
                 We welcome plant visits and technical audits.
               </h2>
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                Procurement and quality teams are welcome to visit our facility in Makarpura GIDC, Vadodara.
-                Please schedule a visit at least 48 hours in advance via email so our engineering team can be
-                available.
+                Procurement, maintenance and quality teams are welcome to discuss requirements or visit our facility in Makarpura GIDC, Vadodara. Please share your enquiry in advance so our engineering team can be available for a focused discussion.
               </p>
               <a
-                href="mailto:alokkushwaha135@gmail.com"
+                href="mailto:assurevalvecomponent@gmail.com"
                 className="mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-primary-deep transition-colors"
               >
                 Schedule A Visit

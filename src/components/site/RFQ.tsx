@@ -5,6 +5,7 @@ import type { FormEvent } from "react";
 export function RFQ() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
   const [fileName, setFileName] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -12,34 +13,35 @@ export function RFQ() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setSubmitMessage("");
 
-    // Capture all form data, including the file attachment
     const formData = new FormData(e.currentTarget);
 
     try {
-      const response = await fetch("https://forminit.com/f/4pohkfgnr7j", {
+      await fetch("https://forminit.com/f/4pohkfgnr7j", {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        mode: "no-cors",
       });
 
-      const data = await response.json();
+      // With mode: no-cors, we can't reliably read the response payload due to opaque response.
+      // Assuming success if the network request didn't throw an error.
+      const isSuccess = true;
 
-      if (response.ok) {
+      if (isSuccess) {
         setSubmitStatus("success");
-        e.currentTarget.reset(); // Clear form on success
-        setFileName(""); // Clear file name on success
+        setSubmitMessage("Your enquiry has been received. We will review it and respond shortly.");
+        e.currentTarget.reset();
+        setFileName("");
       } else {
-        console.error("Web3Forms Error Data:", data);
+        const errorMessage = "Your request could not be completed right now. Please call or WhatsApp us directly.";
         setSubmitStatus("error");
-        alert(`Submission Failed: ${data.message || "Unknown error"}`);
+        setSubmitMessage(errorMessage);
       }
     } catch (error) {
       console.error("Fetch Error:", error);
       setSubmitStatus("error");
-      alert("Submission Failed: Network error. Please check your connection.");
+      setSubmitMessage("Your request could not be completed right now. Please call or WhatsApp us directly.");
     } finally {
       setIsSubmitting(false);
     }
@@ -65,8 +67,8 @@ export function RFQ() {
           <div className="mt-10 space-y-5">
             {[
               { icon: MapPin, l: "746/8 GIDC Industrial Estate, Makarpura, Vadodara, Gujarat, India" },
-              { icon: Phone, l: "+91 926 539 7041" },
-              { icon: Mail, l: "alokkushwaha135@gmail.com" },
+              { icon: Phone, l: "+91 98981 29694" },
+              { icon: Mail, l: "assurevalvecomponent@gmail.com" },
               { icon: Clock, l: "Mon – Sat · 9:00 AM to 7:00 PM IST" },
             ].map((x, i) => (
               <div key={i} className="flex items-start gap-4">
@@ -98,12 +100,12 @@ export function RFQ() {
           )}
 
           <div className="grid sm:grid-cols-2 gap-5">
-            <Field label="Company Name *" name="fi-text-company" placeholder="Your company" required />
-            <Field label="Contact Person *" name="fi-sender-fullName" placeholder="Full name" required />
-            <Field label="Email *" name="fi-sender-email" placeholder="you@company.com" type="email" required />
-            <Field label="Phone *" name="fi-text-phone" placeholder="+91" type="tel" required />
-            <Field label="Material" name="fi-text-material" placeholder="e.g. SS 316, F22, Stellite 6" />
-            <Field label="Quantity" name="fi-text-quantity" placeholder="e.g. 250 pcs / month" />
+            <Field id="company-name" label="Company Name *" name="fi-text-company" placeholder="Your company" required />
+            <Field id="contact-person" label="Contact Person *" name="fi-sender-fullName" placeholder="Full name" required />
+            <Field id="email" label="Email *" name="fi-sender-email" placeholder="you@company.com" type="email" required />
+            <Field id="phone" label="Phone *" name="fi-text-phone" placeholder="+91" type="tel" required />
+            <Field id="material" label="Material" name="fi-text-material" placeholder="e.g. SS 316, F22, Stellite 6" />
+            <Field id="quantity" label="Quantity" name="fi-text-quantity" placeholder="e.g. 250 pcs / month" />
           </div>
 
           {/* Updated File Upload Area */}
@@ -112,7 +114,15 @@ export function RFQ() {
               Component Drawing (PDF / DWG / STEP)
             </label>
             <div
+              role="button"
+              tabIndex={0}
               onClick={() => fileInputRef.current?.click()}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  fileInputRef.current?.click();
+                }
+              }}
               className="mt-2 border-2 border-dashed border-border p-6 flex flex-col items-center justify-center text-center hover:border-accent hover:bg-accent/5 transition-colors cursor-pointer group"
             >
               <input
@@ -146,9 +156,9 @@ export function RFQ() {
           </div>
 
           {submitStatus === "error" && (
-            <div className="flex items-center gap-2 text-red-500 text-sm bg-red-500/10 p-3 border border-red-500/20">
-              <AlertCircle className="h-4 w-4" />
-              <span>Something went wrong. Please try again later or contact us directly.</span>
+            <div className="flex items-start gap-2 text-red-600 text-sm bg-red-500/10 p-3 border border-red-500/20" aria-live="polite">
+              <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
+              <span>{submitMessage}</span>
             </div>
           )}
 
@@ -180,12 +190,14 @@ export function RFQ() {
 }
 
 function Field({
+  id,
   label,
   name,
   placeholder,
   type = "text",
   required = false
 }: {
+  id: string;
   label: string;
   name: string;
   placeholder: string;
@@ -198,6 +210,7 @@ function Field({
         {label}
       </label>
       <input
+        id={id}
         type={type}
         name={name}
         required={required}

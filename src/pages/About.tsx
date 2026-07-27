@@ -4,22 +4,49 @@ import { PageHero } from "../components/site/PageHero";
 import { WhyChoose } from "../components/site/WhyChoose";
 import { Process } from "../components/site/Process";
 import { Target, Eye, Award, Users } from "lucide-react";
+import { SeoHead } from "../components/seo/SeoHead";
+import { StructuredData } from "../components/seo/StructuredData";
+import { siteConfig } from "../lib/seoContent";
 
 const PILLARS = [
-  { icon: Target, title: "Our Mission", body: "Deliver zero-defect precision components to global OEMs with uncompromising quality and on-time performance." },
-  { icon: Eye, title: "Our Vision", body: "To be India's most trusted precision manufacturing partner for mission-critical valve and turbine applications." },
-  { icon: Award, title: "Our Standards", body: "Every batch validated against drawing spec — traceable, calibrated, documented and dispatch-ready." },
-  { icon: Users, title: "Our People", body: "Skilled machinists, welders and engineers with decades of combined experience in critical component manufacturing." },
+  { icon: Target, title: "Our Mission", body: "Deliver dependable valve components and engineering support for industrial customers who need precision, reliability and fast response." },
+  { icon: Eye, title: "Our Vision", body: "To become a trusted manufacturing partner for valve, turbine and engineering component requirements across India and beyond." },
+  { icon: Award, title: "Our Standards", body: "Every job is handled with technical clarity, inspection discipline and manufacturing accountability from enquiry to dispatch." },
+  { icon: Users, title: "Our People", body: "Skilled machinists, welders and engineers bring practical experience to complex repair, machining and fabrication work." },
 ];
 
 export default function About() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.companyName,
+    url: siteConfig.website,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Plot No. 298/1/B-4",
+      addressLocality: "Vadodara",
+      addressRegion: "Gujarat",
+      postalCode: "390010",
+      addressCountry: "IN",
+    },
+    sameAs: [siteConfig.website, `https://wa.me/${siteConfig.phone.replace(/\D/g, "")}`],
+  };
+
   return (
     <PageShell>
+      <SeoHead
+        title="About Assure Valve | Precision Valve Engineering Company"
+        description="Learn about Assure Valve’s manufacturing capabilities, engineering-led approach and experience in valve component production and refurbishment."
+        canonical="https://assurevalve.in/about"
+      />
+      <StructuredData data={organizationSchema} />
       <PageHero
         crumb="About"
         eyebrow="Our Story"
         title="Engineering trust, one precision component at a time."
-        description="Founded in 2005 in Vadodara, Assure Valve Component Manufacturing Co. has grown into a trusted CNC precision manufacturer serving OEMs in power, oil & gas and heavy engineering."
+        description="Assure Valve Component Manufacturing Company was established in 2022 and is backed by over 20 years of experience in the valve and engineering industry."
       />
 
       <section className="py-24 lg:py-32 bg-background">
@@ -35,20 +62,13 @@ export default function About() {
           </div>
           <div className="lg:col-span-7 space-y-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
             <p>
-              Assure Valve Component Manufacturing Co. is a Vadodara-based precision manufacturer specialising in
-              CNC turning, VMC machining and specialist welding for valve, turbine and heavy-engineering
-              applications. Since 2005, we have supplied dimensionally critical components to OEMs across India
-              and abroad.
+              Assure Valve is a Vadodara-based manufacturer supporting industrial buyers with precision valve components, repair services, CNC machining, welding and surface engineering solutions. Our capability is built around practical engineering knowledge and dependable execution.
             </p>
             <p>
-              Our shop floor combines Jyoti CNC turning centres, VMC machines and certified welding capabilities
-              with a calibrated inspection lab — allowing us to move from bar stock to finished, inspected
-              components entirely in-house.
+              The company is established in 2022, while its leadership and technical team bring over 20 years of experience in valve and engineering operations. That experience informs how we review drawings, manage material selection, coordinate repair work and support technical enquiries.
             </p>
             <p>
-              We serve procurement teams who value repeatability, documentation and on-time delivery over
-              lowest-cost promises. That focus has earned us long-term relationships with vendor-approved
-              suppliers to global industrial names.
+              We work closely with procurement, maintenance and engineering teams who value repeatability, documentation and clear communication. Our goal is to provide a dependable manufacturing partner for mission-critical components and refurbishment support.
             </p>
           </div>
         </div>

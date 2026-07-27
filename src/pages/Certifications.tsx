@@ -40,7 +40,7 @@ export default function Certifications() {
             <h3 className="font-display text-2xl font-bold text-foreground">Need certificates for vendor registration?</h3>
             <p className="mt-3 text-muted-foreground max-w-2xl">
               Copies of GST, Udyam, MSME certificates, PAN, cancelled cheque and bank details for vendor
-              onboarding are shared on request. Write to <span className="text-primary font-semibold">alokkushwaha135@gmail.com</span> with your vendor code.
+              onboarding are shared on request. Write to <span className="text-primary font-semibold">assurevalvecomponent@gmail.com</span> with your vendor code.
             </p>
           </div>
         </div>
