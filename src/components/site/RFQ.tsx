@@ -1,4 +1,5 @@
 import { ArrowRight, MapPin, Phone, Mail, Clock, Upload, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { useState, useRef } from "react";
 import type { FormEvent } from "react";
 
@@ -15,31 +16,37 @@ export function RFQ() {
     setSubmitStatus("idle");
     setSubmitMessage("");
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
-      await fetch("https://forminit.com/f/4pohkfgnr7j", {
+      const response = await fetch("/api/send-rfq", {
         method: "POST",
         body: formData,
-        mode: "no-cors",
       });
 
-      // With mode: no-cors, we can't reliably read the response payload due to opaque response.
-      // Assuming success if the network request didn't throw an error.
-      const isSuccess = true;
+      let data;
+      try {
+        data = await response.json();
+      } catch (e) {
+        throw new Error("Invalid server response.");
+      }
 
-      if (isSuccess) {
+      if (data.success) {
+        toast.success(data.message || "RFQ submitted successfully.");
         setSubmitStatus("success");
         setSubmitMessage("Your enquiry has been received. We will review it and respond shortly.");
-        e.currentTarget.reset();
+        form.reset();
         setFileName("");
+        return; // Return immediately to prevent any accidental fallthrough
       } else {
-        const errorMessage = "Your request could not be completed right now. Please call or WhatsApp us directly.";
+        toast.error(data.message || "Submission failed.");
         setSubmitStatus("error");
-        setSubmitMessage(errorMessage);
+        setSubmitMessage(data.message || "Your request could not be completed right now. Please call or WhatsApp us directly.");
       }
     } catch (error) {
       console.error("Fetch Error:", error);
+      toast.error("Network error. Please try again.");
       setSubmitStatus("error");
       setSubmitMessage("Your request could not be completed right now. Please call or WhatsApp us directly.");
     } finally {

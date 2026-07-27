@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "sonner";
 import { ScrollToTop } from "./components/site/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -22,6 +23,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 function App() {
   return (
     <>
+      <Toaster position="top-center" richColors />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
