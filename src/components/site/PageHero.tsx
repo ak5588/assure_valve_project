@@ -15,7 +15,6 @@ export function PageHero({
   return (
     <section className="relative bg-primary-deep pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
       <div className="absolute inset-0 grid-blueprint opacity-30" />
-      <div className="absolute left-0 top-1/2 h-1 w-24 bg-accent" />
       <div className="container-industrial relative">
         <nav className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 mb-6">
           <Link to="/" className="hover:text-accent">Home</Link>

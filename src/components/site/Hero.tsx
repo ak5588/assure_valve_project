@@ -16,53 +16,51 @@ export function Hero() {
       <div className="absolute inset-0 bg-linear-to-r from-primary-deep via-primary-deep/85 to-primary-deep/30" />
       <div className="absolute inset-0 grid-blueprint opacity-40" />
 
-      {/* Accent bar */}
-      <div className="absolute left-0 top-1/2 h-1 w-24 bg-accent" />
-
-      <div className="relative z-10 container-industrial flex-1 flex flex-col justify-center pt-40 pb-24 lg:pt-48 lg:pb-32">
+      <div className="relative z-10 container-industrial flex-1 flex flex-col justify-center pt-28 pb-16 lg:pt-32 lg:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="max-w-4xl"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4 lg:mb-5">
             <div className="h-px w-10 bg-accent" />
             <span className="text-eyebrow text-accent">Engineering-led valve manufacturing from Vadodara</span>
           </div>
 
-          <h1 className="font-display text-[clamp(2.2rem,4.7vw,4.7rem)] font-bold text-white leading-[1.05] tracking-tight">
+          <h1 className="font-display text-[clamp(2rem,4vw,4rem)] font-bold text-white leading-[1.1] tracking-tight">
             Precision <span className="text-accent">valve component manufacturing</span>, repair and engineering support for demanding industrial applications.
           </h1>
 
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl text-white/75 max-w-2xl leading-relaxed">
+          <p className="mt-4 sm:mt-5 text-base sm:text-lg lg:text-[1.15rem] text-white/75 max-w-[680px] leading-relaxed">
             Assure Valve delivers CNC and VMC machining, valve repair, welding, hard facing, thermal spray coating and refurbishment support for OEMs, EPCs and maintenance teams across India.
           </p>
 
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
             <Link
               to="/quote"
-              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-accent-glow transition-colors"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-accent text-accent-foreground px-7 py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-accent-glow transition-colors"
             >
               Request Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/services"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-3 border border-white/30 text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-white/10 transition-colors"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-3 border border-white/30 text-white px-7 py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-white/10 transition-colors"
             >
               Explore Capabilities
             </Link>
           </div>
 
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 text-white/60 text-xs uppercase tracking-widest">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-accent" /> GSTIN · PAN · Manufacturing facility in Vadodara
+          <div className="mt-10 lg:mt-12 flex flex-wrap lg:flex-nowrap items-center gap-x-4 lg:gap-x-6 gap-y-3 text-white/60 text-xs uppercase tracking-widest">
+            <div className="flex items-center gap-2 lg:whitespace-nowrap">
+              <ShieldCheck className="h-4 w-4 text-accent shrink-0" /> 
+              <span>GSTIN · PAN · Manufacturing Facility</span>
             </div>
-            <div className="hidden sm:block w-px h-4 bg-white/20" />
-            <div>Engineering-led quality support</div>
-            <div className="hidden sm:block w-px h-4 bg-white/20" />
-            <div>Fast response for RFQs and repair enquiries</div>
+            <div className="hidden lg:block w-px h-4 bg-white/20 shrink-0" />
+            <div className="lg:whitespace-nowrap">Engineering Support</div>
+            <div className="hidden lg:block w-px h-4 bg-white/20 shrink-0" />
+            <div className="lg:whitespace-nowrap">Fast RFQ Response</div>
           </div>
         </motion.div>
       </div>
@@ -76,8 +74,8 @@ export function Hero() {
             { k: "All", v: "Core services under one roof" },
             { k: "24/7", v: "Enquiry support via phone and WhatsApp" },
           ].map((s) => (
-            <div key={s.v} className="rounded-md border border-white/10 bg-white/5 px-4 py-5 text-center sm:rounded-none sm:border-0 sm:bg-transparent sm:px-4 sm:py-6 lg:px-8 lg:text-left">
-              <div className="font-display text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+            <div key={s.v} className="rounded-md border border-white/10 bg-white/5 px-4 py-4 text-center sm:rounded-none sm:border-0 sm:bg-transparent sm:px-4 sm:py-5 lg:px-8 lg:py-6 lg:text-left">
+              <div className="font-display text-2xl font-bold text-white sm:text-3xl lg:text-[2rem]">
                 {s.k}
               </div>
               <div className="mt-1 text-[11px] uppercase tracking-widest text-white/60">
