@@ -22,8 +22,8 @@ export default function ServicesPage() {
   return (
     <PageShell>
       <SeoHead
-        title="Valve Manufacturing Services | CNC Machining & Welding"
-        description="Explore Assure Valve’s services including valve component manufacturing, CNC machining, valve repair, welding, hard facing and thermal spray coating."
+        title="Valve Manufacturing Services | CNC and VMC Machining & Welding"
+        description="Explore Assure Valve’s services including valve component manufacturing, CNC and VMC machining, valve repair, welding, hard facing and thermal spray coating."
         canonical="https://assurevalve.in/services"
       />
       <StructuredData data={{ "@context": "https://schema.org", "@graph": serviceSchemas }} />

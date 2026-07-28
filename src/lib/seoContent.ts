@@ -32,7 +32,7 @@ export const seoStrategy = {
     "Precision Machining",
   ],
   secondaryKeywords: [
-    "CNC Machining",
+    "CNC and VMC Machining",
     "Industrial Welding",
     "Stellite Welding",
     "Inconel Welding",
@@ -65,9 +65,9 @@ export const pageMeta = {
     slug: "/about",
   },
   services: {
-    title: "Valve Manufacturing Services | CNC Machining & Welding",
+    title: "Valve Manufacturing Services | CNC and VMC Machining & Welding",
     description:
-      "Explore Assure Valve’s services including valve component manufacturing, CNC machining, valve repair, welding, hard facing and thermal spray coating.",
+      "Explore Assure Valve’s services including valve component manufacturing, CNC and VMC machining, valve repair, welding, hard facing and thermal spray coating.",
     slug: "/services",
   },
   industries: {
@@ -152,13 +152,13 @@ export const services = [
     keywords: ["valve repair", "industrial valve repair", "valve refurbishment"],
   },
   {
-    title: "CNC Machining",
+    title: "CNC and VMC Machining",
     slug: "cnc-machining",
     summary:
-      "High-precision CNC turning and machining for valve and engineering components with tight tolerances and repeatable output.",
+      "High-precision CNC and VMC turning and machining for valve and engineering components with tight tolerances and repeatable output.",
     details:
       "We support complex machining requirements with consistent process control and inspection from first article to batch production.",
-    keywords: ["CNC machining", "precision machining", "precision components"],
+    keywords: ["CNC and VMC machining", "precision machining", "precision components"],
   },
   {
     title: "Industrial Welding",
@@ -195,7 +195,7 @@ export const industries = [
 
 export const whyChoose = [
   {
-    title: "Backed by 20+ years of industry experience",
+    title: "Backed by 25+ years of industry experience",
     body: "Our leadership and technical team bring deep practical experience in valve engineering, repair and manufacturing workflows.",
   },
   {
@@ -245,7 +245,7 @@ export const faqItems = [
 
 export const footerContent = {
   summary:
-    "Assure Valve is a precision manufacturing company based in Vadodara, Gujarat, supporting industrial buyers with valve components, repairs, CNC machining and engineering services.",
+    "Assure Valve is a precision manufacturing company based in Vadodara, Gujarat, supporting industrial buyers with valve components, repairs, CNC and VMC machining and engineering services.",
   copyright: `© ${new Date().getFullYear()} Assure Valve Component Manufacturing Company. All rights reserved.`,
 };
 
@@ -281,7 +281,7 @@ export const internalLinking = [
 
 export const imageAltText = [
   { page: "Home", alt: "Precision machining and valve component manufacturing at Assure Valve" },
-  { page: "Services", alt: "Valve repair and CNC machining work in progress at Assure Valve" },
+  { page: "Services", alt: "Valve repair and CNC and VMC machining work in progress at Assure Valve" },
   { page: "Industries", alt: "Industrial valve components manufactured for oil, gas and power applications" },
   { page: "Contact", alt: "Assure Valve manufacturing facility in Makarpura, Vadodara" },
 ];
@@ -302,7 +302,7 @@ export const termsAndConditions = [
 
 export const googleBusinessProfile = {
   description:
-    "Assure Valve is a valve component manufacturer and repair company based in Vadodara, Gujarat, offering precision machining, CNC machining, industrial welding, thermal spray coating, hard facing and valve refurbishment services.",
+    "Assure Valve is a valve component manufacturer and repair company based in Vadodara, Gujarat, offering precision machining, CNC and VMC machining, industrial welding, thermal spray coating, hard facing and valve refurbishment services.",
   categories: ["Industrial Equipment Supplier", "Manufacturing Company", "Valve Supplier"],
 };
 

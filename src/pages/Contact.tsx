@@ -30,7 +30,7 @@ export default function Contact() {
       addressCountry: "IN",
     },
     areaServed: ["Vadodara", "Gujarat", "India"],
-    description: "Valve component manufacturer and repair company in Vadodara offering CNC machining, industrial welding, coating and refurbishment services.",
+    description: "Valve component manufacturer and repair company in Vadodara offering CNC and VMC machining, industrial welding, coating and refurbishment services.",
     geo: {
       "@type": "GeoCoordinates",
       latitude: 22.3220,

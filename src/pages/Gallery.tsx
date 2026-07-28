@@ -9,7 +9,7 @@ export default function GalleryPage() {
         crumb="Gallery"
         eyebrow="Inside The Facility"
         title="A closer look at the shop floor."
-        description="Modern CNC infrastructure, disciplined workflow and skilled engineers — engineered for repeatable quality."
+        description="Modern CNC and VMC infrastructure, disciplined workflow and skilled engineers — engineered for repeatable quality."
       />
       <GallerySection />
     </PageShell>

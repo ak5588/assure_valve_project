@@ -62,7 +62,7 @@ export default function About() {
           </div>
           <div className="lg:col-span-7 space-y-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
             <p>
-              Assure Valve is a Vadodara-based manufacturer supporting industrial buyers with precision valve components, repair services, CNC machining, welding and surface engineering solutions. Our capability is built around practical engineering knowledge and dependable execution.
+              Assure Valve is a Vadodara-based manufacturer supporting industrial buyers with precision valve components, repair services, CNC and VMC machining, welding and surface engineering solutions. Our capability is built around practical engineering knowledge and dependable execution.
             </p>
             <p>
               The company is established in 2022, while its leadership and technical team bring over 20 years of experience in valve and engineering operations. That experience informs how we review drawings, manage material selection, coordinate repair work and support technical enquiries.

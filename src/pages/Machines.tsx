@@ -21,8 +21,8 @@ export default function Machines() {
       <PageHero
         crumb="Machines"
         eyebrow="Plant & Machinery"
-        title="Modern CNC infrastructure engineered for repeatability."
-        description="12+ CNC and support machines across a 10,000 sq. ft. facility in Makarpura, Vadodara — configured for high-mix precision component manufacturing."
+        title="Modern CNC and VMC infrastructure engineered for repeatability."
+        description="12+ CNC and VMC and support machines across a 10,000 sq. ft. facility in Makarpura, Vadodara — configured for high-mix precision component manufacturing."
       />
 
       <section className="py-24 bg-background">
@@ -58,7 +58,7 @@ export default function Machines() {
           <div className="mt-12 grid sm:grid-cols-3 gap-px bg-border border border-border">
             {[
               { k: "10,000", v: "Sq. Ft. Facility" },
-              { k: "12+", v: "CNC & Support Machines" },
+              { k: "12+", v: "CNC and VMC & Support Machines" },
               { k: "3 Shift", v: "Operational Capacity" },
             ].map((s) => (
               <div key={s.v} className="bg-secondary p-8 text-center">
