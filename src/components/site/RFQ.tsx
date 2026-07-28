@@ -73,7 +73,7 @@ export function RFQ() {
 
           <div className="mt-10 space-y-5">
             {[
-              { icon: MapPin, l: "746/8 GIDC Industrial Estate, Makarpura, Vadodara, Gujarat, India" },
+              { icon: MapPin, l: "298/1/B-4 GIDC, Makarpura, Vadodara, Gujarat, India" },
               { icon: Phone, l: "+91 98981 29694" },
               { icon: Mail, l: "assurevalvecomponent@gmail.com" },
               { icon: Clock, l: "Mon – Sat · 9:00 AM to 7:00 PM IST" },

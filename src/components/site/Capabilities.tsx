@@ -4,7 +4,7 @@ import { Cog, Layers, Flame, Wrench, Gauge, HardHat, ArrowUpRight } from "lucide
 const CAPS = [
   { icon: Cog, title: "CNC Turning", desc: "High-precision turning on Jyoti DX200 & DX250 for shafts, stems, spindles and rotational valve parts." },
   { icon: Layers, title: "VMC Machining", desc: "Vertical machining centre operations for bodies, bonnets, brackets and complex prismatic geometries." },
-  { icon: Flame, title: "Stellite & TIG Welding", desc: "Certified stellite hard-facing and argon welding on valve seats, discs and turbine components." },
+  { icon: Flame, title: "Stellite Welding", desc: "Certified stellite hard-facing and argon welding on valve seats, discs and turbine components." },
   { icon: Wrench, title: "Fabrication & Job Work", desc: "Custom engineering job works, fabrication and assemblies as per drawing, sample or specification." },
   { icon: Gauge, title: "Valve Components", desc: "Bodies, bonnets, stems, discs, seats and glands for gate, globe, ball, check and control valves." },
   { icon: HardHat, title: "Turbine Components", desc: "Precision-ground turbine parts for steam turbines and power-plant applications with critical tolerances." },
