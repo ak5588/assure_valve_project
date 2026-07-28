@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Target, Clock, Award, Users, Microscope, Truck } from "lucide-react";
 
 const REASONS = [
-  { icon: Target, title: "Backed by 20+ years of experience", desc: "Our leadership and technical team bring a practical understanding of valve engineering, repair and manufacturing workflows." },
+  { icon: Target, title: "Backed by 25+ years of experience", desc: "Our leadership and technical team bring a practical understanding of valve engineering, repair and manufacturing workflows." },
   { icon: Microscope, title: "Engineering-led quality support", desc: "Inspection, documentation and traceability are built into every stage of the process." },
   { icon: Clock, title: "Responsive to urgent enquiries", desc: "We support repeat production as well as fast-moving repair and refurbishment requirements." },
   { icon: Award, title: "Manufacturing capability under one roof", desc: "Machining, welding, hard facing and coating services are coordinated to reduce handoffs and delays." },

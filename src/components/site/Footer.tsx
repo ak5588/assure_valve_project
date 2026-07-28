@@ -22,7 +22,7 @@ const QUICK_LINKS = [
 const SERVICES = [
   "Valve Component Manufacturing",
   "Valve Repair",
-  "CNC Machining",
+  "CNC and VMC Machining",
   "Stellite Welding",
   "Inconel Welding",
   "Thermal Spray Coating",
@@ -47,7 +47,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="mt-8 text-sm text-white/70 leading-relaxed max-w-sm">
-              Precision Valve Component Manufacturing, Repair and Engineering Solutions backed by 20+ years of industry expertise.
+              Precision Valve Component Manufacturing, Repair and Engineering Solutions backed by 25+ years of industry expertise.
             </p>
           </div>
 

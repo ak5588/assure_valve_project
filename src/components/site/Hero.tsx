@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-primary-deep">
       <img
         src={heroImg}
-        alt="Precision CNC machining of a valve component"
+        alt="Precision CNC and VMC machining of a valve component"
         width={1920}
         height={1088}
         className="absolute inset-0 h-full w-full object-cover opacity-55"
@@ -36,7 +36,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl text-white/75 max-w-2xl leading-relaxed">
-            Assure Valve delivers CNC machining, valve repair, welding, hard facing, thermal spray coating and refurbishment support for OEMs, EPCs and maintenance teams across India.
+            Assure Valve delivers CNC and VMC machining, valve repair, welding, hard facing, thermal spray coating and refurbishment support for OEMs, EPCs and maintenance teams across India.
           </p>
 
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-4">
@@ -71,7 +71,7 @@ export function Hero() {
       <div className="relative z-10 border-t border-white/10 bg-primary-deep/60 backdrop-blur-sm mt-auto">
         <div className="container-industrial grid grid-cols-1 gap-3 py-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:py-0">
           {[
-            { k: "20+", v: "Years of industry experience" },
+            { k: "25+", v: "Years of industry experience" },
             { k: "2022", v: "Company establishment" },
             { k: "All", v: "Core services under one roof" },
             { k: "24/7", v: "Enquiry support via phone and WhatsApp" },

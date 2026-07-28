@@ -18,7 +18,7 @@ export function Gallery() {
             </h2>
           </div>
           <div className="lg:col-span-4 text-muted-foreground">
-            Modern CNC infrastructure, disciplined workflow and skilled engineers — engineered for repeatable quality.
+            Modern CNC and VMC infrastructure, disciplined workflow and skilled engineers — engineered for repeatable quality.
           </div>
         </div>
 

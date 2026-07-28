@@ -26,7 +26,7 @@ export function Capabilities() {
           </div>
           <div className="lg:col-span-6 lg:col-start-7 flex items-end">
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              From bar stock to finished, inspected components — our capabilities cover CNC machining, valve repair, specialist welding, thermal spray coating and refurbishment support tailored for valve, turbine and heavy-engineering applications.
+              From bar stock to finished, inspected components — our capabilities cover CNC and VMC machining, valve repair, specialist welding, thermal spray coating and refurbishment support tailored for valve, turbine and heavy-engineering applications.
             </p>
           </div>
         </div>
