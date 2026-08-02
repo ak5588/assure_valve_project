@@ -53,7 +53,7 @@ export default function Contact() {
         description="For quotations, technical discussion, refurbishment support or a plant visit — reach us on any of the channels below."
       />
 
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
             {CARDS.map((c) => (
@@ -79,20 +79,51 @@ export default function Contact() {
               </p>
               <a
                 href="mailto:assurevalvecomponent@gmail.com"
-                className="mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-primary-deep transition-colors"
+                className="mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-primary-deep transition-colors focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 Schedule A Visit
               </a>
             </div>
 
-            <div className="min-h-[360px] bg-primary-deep grid-blueprint relative overflow-hidden">
-              <iframe
-                title="Assure Valve — Makarpura, Vadodara"
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3692.630088191627!2d73.19216257529119!3d22.254109679719825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDE1JzE0LjgiTiA3M8KwMTEnNDEuMSJF!5e0!3m2!1sen!2sin!4v1785675667759!5m2!1sen!2sin"
-                loading="lazy"
-                className="absolute inset-0 w-full h-full border-0 grayscale contrast-125"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="flex flex-col border border-border h-full bg-background relative group">
+              <div className="flex-1 min-h-[280px] bg-primary-deep grid-blueprint relative overflow-hidden">
+                <iframe
+                  title="Assure Valve — Makarpura, Vadodara"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3692.630088191627!2d73.19216257529119!3d22.254109679719825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDE1JzE0LjgiTiA3M8KwMTEnNDEuMSJF!5e0!3m2!1sen!2sin!4v1785675667759!5m2!1sen!2sin"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full border-0 grayscale contrast-125"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <a
+                  href="https://www.google.com/maps?q=22.254109679719825,73.19216257529119"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-2 text-xs font-semibold uppercase tracking-wider hover:bg-primary-deep transition-colors shadow-lg z-10 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-accent opacity-0 group-hover:opacity-100 lg:opacity-100"
+                >
+                  <MapPin className="h-3 w-3" />
+                  Open in Google Maps
+                </a>
+              </div>
+              <div className="p-6 bg-secondary flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-t border-border">
+                <div className="space-y-1.5">
+                  <div className="font-semibold text-sm uppercase tracking-wider text-foreground">
+                    Assure Valve Component Mfg. Co.
+                  </div>
+                  <div className="text-sm text-muted-foreground leading-relaxed">
+                    Makarpura GIDC, Vadodara,<br />Gujarat, India
+                  </div>
+                </div>
+                <div className="sm:text-right space-y-1.5">
+                  <div className="flex items-center gap-2 sm:justify-end text-sm font-medium text-foreground">
+                    <Phone className="h-3.5 w-3.5 text-accent" />
+                    +91 98981 29694
+                  </div>
+                  <div className="flex items-center gap-2 sm:justify-end text-sm text-muted-foreground">
+                    <Clock className="h-3.5 w-3.5 text-accent" />
+                    24/7 Support
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

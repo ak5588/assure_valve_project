@@ -55,7 +55,7 @@ export function RFQ() {
   };
 
   return (
-    <section id="rfq" className="py-24 lg:py-32 bg-secondary">
+    <section id="rfq" className="py-16 lg:py-16 lg:py-24 bg-secondary">
       <div className="container-industrial grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
           <div className="flex items-center gap-3 mb-4">
@@ -99,7 +99,7 @@ export function RFQ() {
               <button
                 type="button"
                 onClick={() => setSubmitStatus("idle")}
-                className="bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary-deep transition-colors"
+                className="bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 Send Another Request
               </button>
@@ -158,7 +158,7 @@ export function RFQ() {
               name="fi-text-message"
               rows={4}
               placeholder="Describe your requirement, tolerances, application, delivery timeline…"
-              className="mt-2 w-full border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:border-accent transition-colors"
+              className="mt-2 w-full border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-colors"
             />
           </div>
 
@@ -172,7 +172,7 @@ export function RFQ() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-primary-deep transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <>
@@ -222,7 +222,7 @@ function Field({
         name={name}
         required={required}
         placeholder={placeholder}
-        className="mt-2 w-full border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:border-accent transition-colors"
+        className="mt-2 w-full border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-colors"
       />
     </div>
   );

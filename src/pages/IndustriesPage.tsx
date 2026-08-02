@@ -19,7 +19,7 @@ export default function IndustriesPage() {
         description="Our work is built for industrial environments where service life, uptime and dimensional integrity are essential."
       />
 
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial grid gap-8 lg:grid-cols-2">
           {industries.map((industry) => (
             <div key={industry} className="border border-border bg-secondary p-8">

@@ -12,7 +12,7 @@ export default function TermsPage() {
         canonical="https://assurevalve.in/terms-and-conditions"
       />
       <PageHero crumb="Terms" eyebrow="Terms & Conditions" title="Website terms and enquiry conditions." description="Please review the basic terms governing website use and quotation discussions." />
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial space-y-6 text-sm leading-relaxed text-muted-foreground">
           {termsAndConditions.map((item) => (
             <p key={item}>{item}</p>

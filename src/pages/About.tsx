@@ -49,7 +49,7 @@ export default function About() {
         description="Assure Valve Component Manufacturing Company was established in 2022 and is backed by over 20 years of experience in the valve and engineering industry."
       />
 
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="py-16 lg:py-16 lg:py-24 bg-background">
         <div className="container-industrial grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-4">
@@ -74,7 +74,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 bg-secondary">
+      <section className="py-16 lg:py-24 bg-secondary">
         <div className="container-industrial">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
             {PILLARS.map((p, i) => (

@@ -17,7 +17,7 @@ export default function NotFoundPage() {
         title="The page you are looking for is not available."
         description="The link may be outdated or the page may have moved. Please return to the homepage or contact us for assistance."
       />
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial">
           <Link to="/" className="inline-flex bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-accent-foreground">
             Back to Home

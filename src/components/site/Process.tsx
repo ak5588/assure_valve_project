@@ -11,7 +11,7 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section className="relative py-24 lg:py-32 bg-background overflow-hidden">
+    <section className="relative py-16 lg:py-16 lg:py-24 bg-background overflow-hidden">
       <div className="container-industrial">
         <div className="max-w-3xl mb-14">
           <div className="flex items-center gap-3 mb-4">

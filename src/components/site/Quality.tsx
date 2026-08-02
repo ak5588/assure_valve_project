@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import qImg from "@/assets/quality-inspection.jpg";
+import { CERTIFICATES, type CertificateData } from "@/data/certificates";
+import { CertificateViewer } from "./CertificateViewer";
 
 const INSTRUMENTS = [
   "Mitutoyo Digital Micrometers",
@@ -14,8 +17,11 @@ const INSTRUMENTS = [
 ];
 
 export function Quality() {
+  const [selectedCert, setSelectedCert] = useState<CertificateData | null>(null);
+
   return (
-    <section className="py-24 lg:py-32 bg-secondary">
+    <>
+      <section className="py-16 lg:py-16 lg:py-24 bg-secondary">
       <div className="container-industrial grid lg:grid-cols-12 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -64,14 +70,25 @@ export function Quality() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            {["GST Registered", "MSME Registered", "Udyam Registered", "ISO 9001 (In-process)"].map((b) => (
-              <span key={b} className="text-xs font-semibold uppercase tracking-widest border border-primary/20 bg-background px-4 py-2 text-primary">
-                {b}
-              </span>
+            {CERTIFICATES.map((c) => (
+              <button 
+                key={c.id}
+                onClick={() => setSelectedCert(c)}
+                className="group flex items-center gap-2 text-xs font-semibold uppercase tracking-widest border border-primary/20 bg-background px-4 py-2 text-primary hover:bg-primary hover:text-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-accent"
+              >
+                <c.icon className="h-3.5 w-3.5" />
+                {c.title}
+              </button>
             ))}
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
+      <CertificateViewer 
+        certificate={selectedCert} 
+        onClose={() => setSelectedCert(null)} 
+      />
+    </>
   );
 }

@@ -20,7 +20,7 @@ const T = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 lg:py-32 bg-primary text-white">
+    <section className="py-16 lg:py-16 lg:py-24 bg-primary text-white">
       <div className="container-industrial">
         <div className="max-w-3xl mb-14">
           <div className="flex items-center gap-3 mb-4">

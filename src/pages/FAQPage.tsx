@@ -34,7 +34,7 @@ export default function FAQPage() {
         description="We have outlined common questions around manufacturing scope, repair capability, materials and enquiry handling."
       />
 
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial space-y-6">
           {faqItems.map((item) => (
             <details key={item.question} className="border border-border bg-secondary p-6">

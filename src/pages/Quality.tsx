@@ -20,7 +20,7 @@ export default function QualityPage() {
         description="A four-stage inspection process backed by calibrated instruments and traceable documentation — engineered to meet the tolerances that mission-critical applications demand."
       />
       <QualitySection />
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-10 bg-accent" />

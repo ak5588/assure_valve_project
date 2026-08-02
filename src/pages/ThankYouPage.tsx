@@ -13,7 +13,7 @@ export default function ThankYouPage() {
         canonical="https://assurevalve.in/thank-you"
       />
       <PageHero crumb="Thank You" eyebrow="Enquiry Received" title={thankYouCopy.title} description={thankYouCopy.body} />
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial space-y-6">
           <p className="text-lg leading-relaxed text-muted-foreground">
             If your request is urgent, please contact us directly on WhatsApp or phone so we can assist quickly.

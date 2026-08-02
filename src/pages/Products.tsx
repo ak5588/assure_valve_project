@@ -22,7 +22,7 @@ export default function Products() {
         title="Precision components built to drawing, delivered on schedule."
         description="From single-piece prototypes to repeat production batches — engineered for valve manufacturers, turbine OEMs and heavy-engineering primes."
       />
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial space-y-16">
           {PRODUCTS.map((p, i) => (
             <motion.div

@@ -39,6 +39,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === "/";
+  const isTransparent = isHome && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -49,7 +51,7 @@ export function Navbar() {
 
   const getLinkClass = (path: string) => {
     const active = location.pathname === path;
-    if (scrolled) {
+    if (!isTransparent) {
       return active ? "text-accent" : "text-foreground/80 hover:text-accent";
     } else {
       return active ? "text-accent" : "text-white/90 hover:text-accent";
@@ -61,7 +63,7 @@ export function Navbar() {
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
+        !isTransparent
           ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
@@ -73,10 +75,10 @@ export function Navbar() {
             <img src="/assure_valve_logo.png" alt="Assure Valve Logo" className="h-14 w-auto md:h-16 object-contain rounded-sm" />
           </div>
           <div className="leading-tight hidden sm:block">
-            <div className={`font-display font-bold text-[15px] tracking-tight transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
+            <div className={`font-display font-bold text-[15px] tracking-tight transition-colors ${!isTransparent ? "text-foreground" : "text-white"}`}>
               ASSURE VALVE
             </div>
-            <div className={`text-[10px] uppercase tracking-[0.2em] transition-colors ${scrolled ? "text-muted-foreground" : "text-white/70"}`}>
+            <div className={`text-[10px] uppercase tracking-[0.2em] transition-colors ${!isTransparent ? "text-muted-foreground" : "text-white/70"}`}>
               Component Mfg. Co.
             </div>
           </div>
@@ -88,7 +90,7 @@ export function Navbar() {
           <Link to="/about" className={`px-2 xl:px-3 py-2 text-sm font-medium transition-colors ${getLinkClass("/about")}`}>About</Link>
           
           <div className="relative group h-full flex items-center">
-            <button className={`flex items-center gap-1 px-2 xl:px-3 py-2 text-sm font-medium transition-colors ${scrolled ? (isCapabilitiesActive ? 'text-accent' : 'text-foreground/80 hover:text-accent') : (isCapabilitiesActive ? 'text-accent' : 'text-white/90 hover:text-accent')}`}>
+            <button className={`flex items-center gap-1 px-2 xl:px-3 py-2 text-sm font-medium transition-colors ${!isTransparent ? (isCapabilitiesActive ? 'text-accent' : 'text-foreground/80 hover:text-accent') : (isCapabilitiesActive ? 'text-accent' : 'text-white/90 hover:text-accent')}`}>
               Capabilities <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-56">
@@ -121,7 +123,7 @@ export function Navbar() {
         <div className="lg:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <button className={`p-2 transition-colors ${scrolled ? "text-foreground" : "text-white"}`} aria-label="Menu">
+              <button className={`p-2 transition-colors ${!isTransparent ? "text-foreground" : "text-white"}`} aria-label="Menu">
                 <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>

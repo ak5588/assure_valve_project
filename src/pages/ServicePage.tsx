@@ -39,7 +39,7 @@ export default function ServicePage() {
       />
       <StructuredData data={serviceSchema} />
       <PageHero crumb="Services" eyebrow="Service Detail" title={service.title} description={service.summary} />
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial space-y-8">
           <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">{service.details}</p>
           <div className="flex flex-wrap gap-2">

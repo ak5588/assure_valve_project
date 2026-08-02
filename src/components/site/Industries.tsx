@@ -13,7 +13,7 @@ const IND = [
 
 export function Industries() {
   return (
-    <section className="relative py-24 lg:py-32 bg-primary-deep overflow-hidden">
+    <section className="relative py-16 lg:py-16 lg:py-24 bg-primary-deep overflow-hidden">
       <div className="absolute inset-0 grid-blueprint opacity-30" />
       <div className="container-industrial relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">

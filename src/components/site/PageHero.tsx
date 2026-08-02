@@ -13,7 +13,7 @@ export function PageHero({
   crumb: string;
 }) {
   return (
-    <section className="relative bg-primary-deep pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+    <section className="relative bg-primary-deep pt-28 pb-12 lg:pt-32 lg:pb-16 overflow-hidden">
       <div className="absolute inset-0 grid-blueprint opacity-30" />
       <div className="container-industrial relative">
         <nav className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 mb-6">

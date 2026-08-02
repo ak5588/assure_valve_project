@@ -25,7 +25,7 @@ export default function Machines() {
         description="12+ CNC and VMC and support machines across a 10,000 sq. ft. facility in Makarpura, Vadodara — configured for high-mix precision component manufacturing."
       />
 
-      <section className="py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-industrial">
           <div className="grid md:grid-cols-2 gap-4 mb-16">
             <img src={factory} alt="Shop floor" className="w-full aspect-[4/3] object-cover" loading="lazy" />

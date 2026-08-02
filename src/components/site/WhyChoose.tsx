@@ -12,7 +12,7 @@ const REASONS = [
 
 export function WhyChoose() {
   return (
-    <section className="py-24 lg:py-32 bg-secondary">
+    <section className="py-16 lg:py-16 lg:py-24 bg-secondary">
       <div className="container-industrial">
         <div className="max-w-3xl mb-14">
           <div className="flex items-center gap-3 mb-4">
