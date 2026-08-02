@@ -18,10 +18,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ success: false, message: 'Method Not Allowed' });
   }
 
-  console.log("RESEND_API_KEY exists:", !!process.env.RESEND_API_KEY);
-  console.log("RFQ_FROM_EMAIL:", process.env.RFQ_FROM_EMAIL);
-  console.log("RFQ_TO_EMAIL:", process.env.RFQ_TO_EMAIL);
-
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ success: false, message: 'Server configuration error: Missing API key.' });

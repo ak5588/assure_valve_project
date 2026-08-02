@@ -1,4 +1,3 @@
-import aparLogo from "@/assets/companies_image/apar.png";
 import crayogasLogo from "@/assets/companies_image/crayogas.png";
 import econLogo from "@/assets/companies_image/econ.png";
 import flowserveLogo from "@/assets/companies_image/flowserve.png";
@@ -10,7 +9,6 @@ import steLogo from "@/assets/companies_image/ste.png";
 
 const CLIENT_LOGOS = [
   { name: "Siemens Energy India", logo: siemensLogo, alt: "Siemens logo" },
-  { name: "Apar Industries Ltd", logo: aparLogo, alt: "Apar Industries logo" },
   { name: "ECON Machinery Pvt. Ltd", logo: econLogo, alt: "ECON Machinery logo" },
   { name: "Flowserve India", logo: flowserveLogo, alt: "Flowserve logo" },
   { name: "Crayogas Equipment Pvt. Ltd", logo: crayogasLogo, alt: "Crayogas logo" },
