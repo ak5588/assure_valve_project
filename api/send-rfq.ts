@@ -124,6 +124,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { error } = await resend.emails.send({
       from: `Assure Valve <${fromEmail}>`,
       to: [toEmail],
+      replyTo: email,
       subject: `New RFQ | ${company}`,
       html: htmlContent,
       attachments: attachments.length > 0 ? attachments : undefined,
