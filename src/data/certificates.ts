@@ -1,5 +1,6 @@
-import { BadgeCheck, ShieldCheck, FileCheck, Award, type LucideIcon } from "lucide-react";
-import demoPdf from "@/assets/certificates_pdf/demo.pdf";
+import { BadgeCheck, FileCheck, type LucideIcon } from "lucide-react";
+import gstPdf from "@/assets/certificates_pdf/gst-certificate.pdf";
+import udyamPdf from "@/assets/certificates_pdf/udyam-certificate.pdf";
 
 export type CertificateStatus = "Verified" | "In Process" | "Active";
 
@@ -9,6 +10,7 @@ export interface CertificateData {
   description: string;
   status: CertificateStatus;
   pdf: string;
+  downloadName: string;
   icon: LucideIcon;
 }
 
@@ -18,31 +20,17 @@ export const CERTIFICATES: CertificateData[] = [
     title: "GST Registered",
     description: "GST Registration Certificate",
     status: "Verified",
-    pdf: demoPdf,
+    pdf: gstPdf,
+    downloadName: "Assure_Valve_GST_Certificate.pdf",
     icon: BadgeCheck,
-  },
-  {
-    id: "msme",
-    title: "MSME Registered",
-    description: "MSME Registration Certificate",
-    status: "Verified",
-    pdf: demoPdf,
-    icon: ShieldCheck,
   },
   {
     id: "udyam",
     title: "Udyam Registered",
     description: "Udyam Registration Certificate",
     status: "Verified",
-    pdf: demoPdf,
+    pdf: udyamPdf,
+    downloadName: "Assure_Valve_Udyam_Certificate.pdf",
     icon: FileCheck,
-  },
-  {
-    id: "iso",
-    title: "ISO 9001:2015",
-    description: "Certification in progress",
-    status: "In Process",
-    pdf: demoPdf,
-    icon: Award,
   },
 ];

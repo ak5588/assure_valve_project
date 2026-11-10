@@ -45,7 +45,7 @@ export default function Certifications() {
           <div className="mt-14 bg-secondary p-8 lg:p-12">
             <h3 className="font-display text-2xl font-bold text-foreground">Need certificates for vendor registration?</h3>
             <p className="mt-3 text-muted-foreground max-w-2xl">
-              Copies of GST, Udyam, MSME certificates, PAN, cancelled cheque and bank details for vendor
+              Copies of GST, Udyam certificates, PAN, cancelled cheque and bank details for vendor
               onboarding are shared on request. Write to <span className="text-primary font-semibold">assurevalvecomponent@gmail.com</span> with your vendor code.
             </p>
           </div>

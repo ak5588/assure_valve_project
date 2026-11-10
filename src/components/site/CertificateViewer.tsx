@@ -32,6 +32,29 @@ export function CertificateViewer({ certificate, onClose }: CertificateViewerPro
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [certificate, onClose]);
 
+  const handleDownload = async () => {
+    if (!certificate) return;
+    const downloadName = certificate.downloadName || `${certificate.title.replace(/\s+/g, "_")}.pdf`;
+    try {
+      const response = await fetch(certificate.pdf);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = downloadName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch {
+      const link = document.createElement("a");
+      link.href = certificate.pdf;
+      link.download = downloadName;
+      link.target = "_blank";
+      link.click();
+    }
+  };
+
   return (
     <AnimatePresence>
       {certificate && (
@@ -94,15 +117,15 @@ export function CertificateViewer({ certificate, onClose }: CertificateViewerPro
                   <ExternalLink className="h-4 w-4" />
                   <span className="hidden lg:inline">Full Screen</span>
                 </a>
-                <a
-                  href={certificate.pdf}
-                  download
-                  className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors"
+                <button
+                  type="button"
+                  onClick={handleDownload}
+                  className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent"
                   title="Download PDF"
                 >
                   <Download className="h-4 w-4" />
                   <span className="hidden lg:inline">Download</span>
-                </a>
+                </button>
                 <div className="w-px h-6 bg-border mx-1" />
                 <button
                   onClick={onClose}
@@ -122,6 +145,14 @@ export function CertificateViewer({ certificate, onClose }: CertificateViewerPro
                 <p className="text-sm text-muted-foreground mb-4">
                   For the best viewing experience on mobile, please download the certificate.
                 </p>
+                <button
+                  type="button"
+                  onClick={handleDownload}
+                  className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground bg-primary rounded-md shadow-sm"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  Download Certificate
+                </button>
               </div>
               
               <iframe

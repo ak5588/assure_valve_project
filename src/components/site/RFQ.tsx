@@ -28,7 +28,7 @@ export function RFQ() {
       let data;
       try {
         data = await response.json();
-      } catch (e) {
+      } catch {
         throw new Error("Invalid server response.");
       }
 
@@ -89,6 +89,15 @@ export function RFQ() {
         </div>
 
         <form onSubmit={handleSubmit} className="lg:col-span-7 bg-background border border-border p-8 lg:p-10 space-y-5 relative">
+          {/* Honeypot field for spam prevention */}
+          <input
+            type="text"
+            name="fi-hp-website"
+            tabIndex={-1}
+            autoComplete="off"
+            style={{ display: "none" }}
+            aria-hidden="true"
+          />
 
           {/* Success Overlay overlaying the form when submitted successfully */}
           {submitStatus === "success" && (
@@ -137,15 +146,28 @@ export function RFQ() {
                 name="fi-file-attachment"
                 className="hidden"
                 ref={fileInputRef}
-                onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
-                accept=".pdf,.dwg,.step,.stp,.png,.jpg,.jpeg"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) {
+                    setFileName("");
+                    return;
+                  }
+                  if (file.size > 10 * 1024 * 1024) {
+                    toast.error("File size exceeds 10MB limit. Please upload a smaller file.");
+                    e.target.value = "";
+                    setFileName("");
+                    return;
+                  }
+                  setFileName(file.name);
+                }}
+                accept=".pdf,.dwg,.step,.stp,.png,.jpg,.jpeg,.zip,.rar,.doc,.docx"
               />
               <Upload className="h-6 w-6 text-muted-foreground group-hover:text-accent mb-2 transition-colors" />
               <div className="text-sm text-foreground font-medium">
                 {fileName ? fileName : "Click to upload drawing"}
               </div>
               {!fileName && (
-                <div className="text-xs text-muted-foreground mt-1">max 20 MB</div>
+                <div className="text-xs text-muted-foreground mt-1">max 10 MB (PDF, DWG, STEP, CAD, Images, ZIP)</div>
               )}
             </div>
           </div>

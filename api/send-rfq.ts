@@ -11,7 +11,18 @@ export const config = {
 };
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-const ALLOWED_EXTENSIONS = ['pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg', 'zip', 'rar'];
+const ALLOWED_EXTENSIONS = ['pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg', 'zip', 'rar', 'dwg', 'step', 'stp'];
+
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -46,6 +57,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return (Array.isArray(field) ? field[0] : field).toString().trim();
     };
 
+    // Honeypot check for spam bots
+    const honeypot = getField('fi-hp-website');
+    if (honeypot) {
+      // Silently accept to avoid alerting spammers
+      return res.status(200).json({ success: true, message: 'RFQ submitted successfully.' });
+    }
+
     const company = getField('fi-text-company');
     const name = getField('fi-sender-fullName');
     const email = getField('fi-sender-email');
@@ -73,7 +91,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const ext = originalFilename.split('.').pop()?.toLowerCase();
       
       if (!ext || !ALLOWED_EXTENSIONS.includes(ext)) {
-        return res.status(400).json({ success: false, message: 'Invalid file type. Allowed: PDF, DOC, DOCX, PNG, JPG, JPEG, ZIP, RAR.' });
+        return res.status(400).json({ success: false, message: 'Invalid file type. Allowed: PDF, DWG, STEP, STP, DOC, DOCX, PNG, JPG, JPEG, ZIP, RAR.' });
       }
 
       const fileData = fs.readFileSync(file.filepath);
@@ -84,28 +102,37 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
+    const cleanCompany = escapeHtml(company);
+    const cleanName = escapeHtml(name);
+    const cleanEmail = escapeHtml(email);
+    const cleanPhone = escapeHtml(phone);
+    const cleanMaterial = escapeHtml(material);
+    const cleanQuantity = escapeHtml(quantity);
+    const cleanMessage = escapeHtml(message);
+    const cleanFilename = file && file.size > 0 ? escapeHtml(file.originalFilename || (file as any).name || 'upload') : 'None';
+
     const htmlContent = `
       <div style="font-family: sans-serif; max-w-2xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
         <h2 style="color: #1e3a8a; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">New RFQ Submission</h2>
         
         <h3 style="color: #374151; margin-top: 24px;">Company Details</h3>
-        <p style="margin: 4px 0;"><strong>Company:</strong> ${company}</p>
+        <p style="margin: 4px 0;"><strong>Company:</strong> ${cleanCompany}</p>
         
         <h3 style="color: #374151; margin-top: 24px;">Contact Person</h3>
-        <p style="margin: 4px 0;"><strong>Name:</strong> ${name}</p>
-        <p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-        <p style="margin: 4px 0;"><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
-        <p style="margin: 4px 0;"><strong>WhatsApp:</strong> <a href="https://wa.me/${phone.replace(/\D/g,'')}">Chat on WhatsApp</a></p>
+        <p style="margin: 4px 0;"><strong>Name:</strong> ${cleanName}</p>
+        <p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:${cleanEmail}">${cleanEmail}</a></p>
+        <p style="margin: 4px 0;"><strong>Phone:</strong> <a href="tel:${cleanPhone}">${cleanPhone}</a></p>
+        <p style="margin: 4px 0;"><strong>WhatsApp:</strong> <a href="https://wa.me/${cleanPhone.replace(/\\D/g,'')}">Chat on WhatsApp</a></p>
         
         <h3 style="color: #374151; margin-top: 24px;">Project Requirements</h3>
-        <p style="margin: 4px 0;"><strong>Industry / Material:</strong> ${material}</p>
-        <p style="margin: 4px 0;"><strong>Quantity:</strong> ${quantity}</p>
+        <p style="margin: 4px 0;"><strong>Industry / Material:</strong> ${cleanMaterial}</p>
+        <p style="margin: 4px 0;"><strong>Quantity:</strong> ${cleanQuantity}</p>
         
         <h3 style="color: #374151; margin-top: 24px;">Message</h3>
-        <div style="background-color: #f3f4f6; padding: 16px; border-radius: 6px; white-space: pre-wrap;">${message}</div>
+        <div style="background-color: #f3f4f6; padding: 16px; border-radius: 6px; white-space: pre-wrap;">${cleanMessage}</div>
         
         <h3 style="color: #374151; margin-top: 24px;">Attachment Information</h3>
-        <p style="margin: 4px 0;"><strong>File Attached:</strong> ${file && file.size > 0 ? (file.originalFilename || (file as any).name) : 'None'}</p>
+        <p style="margin: 4px 0;"><strong>File Attached:</strong> ${cleanFilename}</p>
         
         <p style="color: #9ca3af; font-size: 12px; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;">
           Submission Date & Time: ${new Date().toUTCString()}

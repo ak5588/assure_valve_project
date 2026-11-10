@@ -16,7 +16,7 @@ const QUICK_LINKS = [
   { label: "FAQ", to: "/faq" },
   { label: "Privacy Policy", to: "/privacy-policy" },
   { label: "Terms & Conditions", to: "/terms-and-conditions" },
-  { label: "Sitemap", to: "#" },
+  { label: "Sitemap", to: "/sitemap.xml" },
 ];
 
 const SERVICES = [
